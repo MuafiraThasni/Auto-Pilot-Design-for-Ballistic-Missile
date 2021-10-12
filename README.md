@@ -62,3 +62,42 @@ reference. Using roll rate gyro will result in a Type 0 system. It would further
 state error in roll rate in the presence of a constant disturbing roll moment. To maintain a desired
 roll angle some form of an attitude reference like vertical gyro must be used. The feedback
 would be a signal proportional to the roll angle about the longitudinal axis of the missile
+
+# Missile Dynamic System
+![missile axis system](https://user-images.githubusercontent.com/92203124/136875032-810d1946-1132-495f-a780-42e7042a6901.PNG)
+
+During dynamic analysis , velocity is assumed as constant, Longitudinal dynamics is given by:
+![longitudinal dynamics](https://user-images.githubusercontent.com/92203124/136875170-8fa1759c-4b55-4af6-92b4-4025ba8795f4.PNG)
+
+Substituting the aerodynamic coeficients for vanguard missile, TF can be derived as ![image](https://user-images.githubusercontent.com/92203124/136875475-e7bb920d-a6af-4cb0-9769-b0c64b75b8e0.png)
+
+Missile is unstable with poles at s =1.48 and s = 0.23.
+
+Servo transfer function is : ![image](https://user-images.githubusercontent.com/92203124/136875646-bf03569b-4b9c-4551-ae69-0c15466e8648.png)
+
+Amplifier gain is selected as 2.3, Pole at 0.23 and zero at 0.0526 of missile transfer function can be
+cancelled, Bode is plotted for uncompensated system:
+![image](https://user-images.githubusercontent.com/92203124/136875742-3b190f4d-3628-4964-9a44-e402fed31769.png)
+
+Let desired phase margin=45 degree, Add a safety factor of 6.7, TF for lead compensator can be derived as 
+![image](https://user-images.githubusercontent.com/92203124/136875857-c0ae345e-5d0e-4e70-8627-a26ab3ff4e60.png)
+
+Bode of compensated control system for T=75,
+![image](https://user-images.githubusercontent.com/92203124/136875888-4ac73b61-91f1-4eb3-9ba5-11a419fd87d8.png)
+
+Step response of uncompensated system:
+![image](https://user-images.githubusercontent.com/92203124/136875944-9cff9a6e-b9b6-4c5c-844b-51e80b319f50.png)
+
+Step response of compensated system T= 75 sec:
+![image](https://user-images.githubusercontent.com/92203124/136875987-a154bb89-0a35-4ded-92cf-00414f4ae084.png)
+
+# Reference
+J. H. Blakelock
+Automatic control of Aircraft and Missiles
+John Wiley Sons, 1991.
+Paul Zarchan
+Tactical and Strategic Missile Guidance
+AIAA ,1997
+
+
+
